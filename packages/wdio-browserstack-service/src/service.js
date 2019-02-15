@@ -64,7 +64,7 @@ export default class BrowserstackService {
 
     _update(sessionId, requestBody) {
         return new Promise((resolve, reject) => {
-            request.put(`https://api.browserstack.com/automate/sessions/${sessionId}.json`, {
+            request.put(`https://api-cloud.browserstack.com/app-automate/sessions/${sessionId}.json`, {
                 json: true,
                 auth: this.auth,
                 body: requestBody
@@ -87,7 +87,7 @@ export default class BrowserstackService {
     _printSessionURL() {
         const capabilities = global.browser.capabilities
         return new Promise((resolve,reject) => request.get(
-            `https://api.browserstack.com/automate/sessions/${this.sessionId}.json`,
+            `https://api-cloud.browserstack.com/app-automate/sessions/${this.sessionId}.json`,
             {
                 json: true,
                 auth: this.auth
